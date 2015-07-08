@@ -4,14 +4,21 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import com.example.kristaps.trackgroups.core.MyApplication;
+import com.example.kristaps.trackgroups.core.entities.User;
 
 
 public class LoginActivity extends ActionBarActivity {
+
+    private MyApplication myApplication = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        myApplication = (MyApplication) getApplicationContext();
     }
 
     @Override
@@ -34,5 +41,14 @@ public class LoginActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void loginUser(View view) {
+        // get username and password from login layout
+        User user = myApplication.getApiService().login();
+       if( user !=null){
+           myApplication.setCurrentUser(user);
+       }
+
     }
 }
