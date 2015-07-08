@@ -24,17 +24,16 @@
         android:visibility="visible"
         android:layout_below="@+id/emailOrUsernameEditText"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/rememberMeCheckBox" />
+        android:layout_alignEnd="@+id/emailOrUsernameEditText" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Remember me"
         android:id="@+id/rememberMeCheckBox"
+        android:checked="false"
         android:layout_below="@+id/loginPasswordEditText"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="80dp"
-        android:checked="false" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"

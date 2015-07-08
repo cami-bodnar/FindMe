@@ -11,4 +11,5 @@
     <string name="emailOrUsernameHint" > Username or email</string>
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_welcome">WelcomeActivity</string>
 </resources>
