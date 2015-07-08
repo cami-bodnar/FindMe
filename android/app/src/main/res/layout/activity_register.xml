@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:text="Register"
         android:id="@+id/confirmRegisterButton"
-        android:onClick="showLoginLayout"
+        android:onClick="registerUser"
         android:layout_below="@+id/confirmPasswordEditText"
         android:layout_alignParentStart="true" />
 

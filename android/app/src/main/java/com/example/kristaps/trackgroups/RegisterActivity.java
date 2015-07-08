@@ -2,16 +2,25 @@ package com.example.kristaps.trackgroups;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.kristaps.trackgroups.core.MyApplication;
 
 
 public class RegisterActivity extends ActionBarActivity {
+
+    private MyApplication myApplication = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        myApplication = (MyApplication) getApplicationContext();
     }
 
     @Override
@@ -35,4 +44,38 @@ public class RegisterActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+    public void sendRegisterRequest(View view) {
+        Log.i("sendRegisterRequest", "start executing");
+        try {
+            // first take entered values from form
+            String email = getEmailValue();
+            String username = getUsernameValue();
+            String password = getPasswordValue();
+            String passwordConfirmation = getPasswordConfirmationValue();
+            if (password.equals(passwordConfirmation))
+                processRegisterRequest(email, username, password);
+            else
+                Toast.makeText(this, "Error. Passwords do not match ", Toast.LENGTH_LONG);
+        }catch(Exception e){
+            Log.e("sendRegisterRequest", "Error occurred", e);
+        }
+    }
+
+    public void processRegisterRequest(String email, String username, String password) {
+        Log.i("proccessRegisterRequest", "start executing");
+        // here need to be implemented logic for sending API request
+        boolean isRequestProcessedSuccessfully = myApplication.getApiService().registerUser(email, username, password);
+        if (isRequestProcessedSuccessfuly)
+            startLoginActivity();
+        else
+            Toast.makeText(this, R.string.registartionFailed, Toast.LENGTH_LONG);
+    }
+
+
+   /* public void registerUser(View view) {
+
+        myApplication.getApiService().registerUser();
+    }*/
 }

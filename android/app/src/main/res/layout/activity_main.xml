@@ -26,7 +26,7 @@
         android:onClick="showLoginLayout"
         android:visibility="visible"
         android:layout_alignTop="@+id/registerButton"
-        android:layout_centerHorizontal="true" />
+        android:layout_toEndOf="@+id/registerButton" />
 
     <TextView
         android:layout_width="wrap_content"
