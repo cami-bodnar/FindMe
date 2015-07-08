@@ -11,6 +11,21 @@ public class UserLocation {
     private double latitude;
     private boolean created;
 
+
+    public UserLocation()
+    {
+    }
+
+    public UserLocation(int id,int userId, double longitude,double latitude,boolean created)
+    {
+
+        this.userLocationID = id;
+        this.userID = userId;
+        this.longitude =  longitude;
+        this.latitude = latitude;
+        this.created = created;
+    }
+
     public int getUserLocationID() {
         return userLocationID;
     }
