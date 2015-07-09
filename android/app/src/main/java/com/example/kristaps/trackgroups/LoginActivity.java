@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 import com.example.kristaps.trackgroups.core.MyApplication;
 import com.example.kristaps.trackgroups.core.entities.User;
@@ -45,10 +46,22 @@ public class LoginActivity extends ActionBarActivity {
 
     public void loginUser(View view) {
         // get username and password from login layout
-        User user = myApplication.getApiService().login();
+        String username = getUsername();
+        String password = getPassword();
+        User user = myApplication.getApiService().login(username, password);
        if( user !=null){
            myApplication.setCurrentUser(user);
        }
 
+    }
+
+    private String getUsername() {
+        EditText emailOrUsernameEditText = (EditText) findViewById(R.id.emailOrUsernameEditText);
+        return emailOrUsernameEditText.getText().toString();
+    }
+
+    private String getPassword() {
+        EditText loginPasswordEditText = (EditText) findViewById(R.id.loginPasswordEditText);
+        return loginPasswordEditText.getText().toString();
     }
 }

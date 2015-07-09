@@ -63,22 +63,24 @@ public class RegisterActivity extends ActionBarActivity {
         }
     }
 
+    private String getEmailValue() {
+        EditText emailEditText = (EditText) findViewById(R.id.emailEditText);
+        return emailEditText.getText().toString();
+    }
+
     private String getPasswordConfirmationValue() {
-        return null;
+        EditText confirmPasswordEditText = (EditText) findViewById(R.id.confirmPasswordEditText);
+        return confirmPasswordEditText.getText().toString();
     }
 
     private String getPasswordValue() {
-        return null;
+        EditText registerPasswordEditText = (EditText) findViewById(R.id.registerPasswordEditText);
+        return registerPasswordEditText.getText().toString();
     }
 
     private String getUsernameValue() {
         EditText usernameEditText = (EditText) findViewById(R.id.usernameEditText);
         return usernameEditText.getText().toString();
-    }
-
-    private String getEmailValue() {
-        EditText emailEditText = (EditText) findViewById(R.id.emailEditText);
-        return emailEditText.getText().toString();
     }
 
     public void processRegisterRequest(String email, String username, String password) {
@@ -96,7 +98,7 @@ public class RegisterActivity extends ActionBarActivity {
     }
 
     public void registerUser(View view) {
-
-        //myApplication.getApiService().registerUser();
+        sendRegisterRequest(view);
+        showLoginLayout();
     }
 }
