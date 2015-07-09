@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Track Groups</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="confirmPasswordHint"> Confirmation password</string>
+    <string name="passwordHint"> Password</string>
+    <string name="usernameHint" > Username </string>
+    <string name="emailHint" > Email </string>
+    <string name="emailOrUsernameHint" > Username or email</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_welcome">WelcomeActivity</string>
+    <string name="registartionFailed">Fqiled</string>
+</resources>
