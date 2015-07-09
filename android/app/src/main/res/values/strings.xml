@@ -13,4 +13,5 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_welcome">WelcomeActivity</string>
     <string name="registartionFailed">Fqiled</string>
+    <string name="title_activity_displaying_user">DisplayingUserActivity</string>
 </resources>

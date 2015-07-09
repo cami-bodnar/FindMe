@@ -104,14 +104,6 @@ public class RegisterActivity extends ActionBarActivity {
     }
 
     public void registerUser(View view) {
-        // REMEMBER ME
-        if (shouldRemember()){
-            getSharedPreferences("MyPrefsFile",MODE_PRIVATE)
-                    .edit()
-                    .putString("username", getUsernameValue())
-                    .putString("password", getPasswordValue())
-                    .commit();
-        }
         // SEND REGISTER REQUEST
         sendRegisterRequest(view);
         // SHOW LOGIN LAYOUT
@@ -119,10 +111,6 @@ public class RegisterActivity extends ActionBarActivity {
     }
 
 
-    public boolean shouldRemember(){
-        CheckBox saveLoginCheckBox = (CheckBox)findViewById(R.id.rememberMeCheckBox);
-        return saveLoginCheckBox.isChecked();
-    }
 
 
 }

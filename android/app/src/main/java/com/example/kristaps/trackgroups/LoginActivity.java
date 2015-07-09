@@ -1,14 +1,21 @@
 package com.example.kristaps.trackgroups;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.example.kristaps.trackgroups.core.MyApplication;
 import com.example.kristaps.trackgroups.core.entities.User;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.view.View;
 
 
 public class LoginActivity extends ActionBarActivity {
@@ -56,9 +63,28 @@ public class LoginActivity extends ActionBarActivity {
         String password = getPassword();
         String user = myApplication.getApiService().login(username, password);
        if( user !=null){
+
 //           myApplication.setCurrentUser(user);
+
+           myApplication.setCurrentUser(user);
+           // REMEMBER ME
+           if (shouldRemember()){
+               getSharedPreferences("loginPrefs",MODE_PRIVATE)
+                       .edit()
+                       .putString("username", getUsername())
+                       .putString("password", getPassword())
+                       .commit();
+           }
+           //startGroupsActivity();
+           showLoginLayout();
+
        }
 
+    }
+
+    public void showLoginLayout() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 
     private String getUsername() {
@@ -69,5 +95,10 @@ public class LoginActivity extends ActionBarActivity {
     private String getPassword() {
         EditText loginPasswordEditText = (EditText) findViewById(R.id.loginPasswordEditText);
         return loginPasswordEditText.getText().toString();
+    }
+
+    public boolean shouldRemember(){
+        CheckBox saveLoginCheckBox = (CheckBox)findViewById(R.id.rememberMeCheckBox);
+        return saveLoginCheckBox.isChecked();
     }
 }

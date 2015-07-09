@@ -17,12 +17,14 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // startGroupsActivity();
+
         // REMEMBER ME
         SharedPreferences pref = getSharedPreferences("loginPrefs",MODE_PRIVATE);
         String username = pref.getString("username", null);
         String password = pref.getString("password", null);
         if (username != null && password != null) {
-            setContentView(R.layout.activity_maps); // dummy
+            showLoginLayout();
         }
     }
 
@@ -73,4 +75,10 @@ public class MainActivity extends ActionBarActivity {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
+
+    public void showLoginLayout(){
+        Intent newScreen = new Intent(getBaseContext(), LoginActivity.class);
+        this.startActivity(newScreen);
+    }
+
 }
