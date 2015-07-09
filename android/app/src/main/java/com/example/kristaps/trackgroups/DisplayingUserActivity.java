@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class DisplayingUserActivity extends ActionBarActivity {
@@ -23,7 +24,8 @@ public class DisplayingUserActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        
+        TextView tv = new TextView(this);
+        tv.setText("hello");
 
 
         // Handle action bar item clicks here. The action bar will
@@ -40,8 +42,4 @@ public class DisplayingUserActivity extends ActionBarActivity {
     }
 }
 
-    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id)  {
 
-        TextView tv = new TextView(this);
-        tv.setText(parent.getItemAtPosition(pos).toString());
-    }

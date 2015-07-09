@@ -64,8 +64,13 @@ public class ApiService {
                     .load("http://example.com/post")
                     .setJsonObjectBody(jsonObject)
                     .asJsonObject().get();
+<<<<<<< HEAD
 //            boolean result = resultJson.getAsBoolean("response");
             return true;
+=======
+            Boolean result = resultJson.get("response").getAsBoolean();
+            return result;
+>>>>>>> origin/master
         } catch (InterruptedException e) {
             e.printStackTrace();
             return false;
@@ -75,21 +80,44 @@ public class ApiService {
         }
 
     }
-     public String login(String username, String password) {
+     public User login(String username, String password) {
 
         JsonObject jsonObject = new JsonObject();
-
-            jsonObject.addProperty("username", username);
+        //User resUser = null;
+         User resUser = new User();
+         resUser.setUserID(1);
+         resUser.setEmail("email");
+         resUser.setUsername("username");
+         resUser.setPassword("pass");
+            /*jsonObject.addProperty("username", username);
             jsonObject.addProperty("password", password);
-            return jsonObject.toString();
-
+             JsonObject resultJson = null;
+             try {
+                 resultJson = Ion.with(context)
+                         .load("http://example.com/post")
+                         .setJsonObjectBody(jsonObject)
+                         .asJsonObject().get();
+                 if (resultJson == null) return  null;
+                 String result = resultJson.get("response").getAsString();*/
+                 return resUser;
+             /*} catch (InterruptedException e) {
+                 e.printStackTrace();
+                 return resUser;
+             } catch (ExecutionException e) {
+                 e.printStackTrace();
+                 return resUser;
+             }
+*/
 
        /* User currentUser = new User();
         currentUser.setUserID(1);
         currentUser.setUsername("Test");
         currentUser.setEmail("email");
 */
+<<<<<<< HEAD
 /*        return null;*/
+=======
+>>>>>>> origin/master
     }
 
     public ArrayList<Group> listAllUserGroups(int userID){
@@ -110,7 +138,7 @@ public class ApiService {
 
     }
 
-     public String addNewGroup(String groupName, String groupDescription, int ownerID) {
+     public boolean addNewGroup(String groupName, String groupDescription, int ownerID) {
 
         /*Group group = new Group();
         group.setGroupID(1);
@@ -123,15 +151,46 @@ public class ApiService {
          jsonObject.addProperty("Group name", groupName);
          jsonObject.addProperty("Group description", groupDescription);
          jsonObject.addProperty("Owner id", ownerID);
-         return jsonObject.toString();
+
+
+         JsonObject resultJson = null;
+         try {
+             resultJson = Ion.with(context)
+                     .load("http://example.com/post")
+                     .setJsonObjectBody(jsonObject)
+                     .asJsonObject().get();
+             boolean result = resultJson.get("response").getAsBoolean();
+             return result;
+         } catch (InterruptedException e) {
+             e.printStackTrace();
+             return false;
+         } catch (ExecutionException e) {
+             e.printStackTrace();
+             return false;
+         }
 
      }
 
-    public String removeUserFromGroup(int groupID, int userID){
+    public boolean removeUserFromGroup(int groupID, int userID){
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("GroupID", groupID);
         jsonObject.addProperty("UserID", userID);
-        return jsonObject.toString();
+
+        JsonObject resultJson = null;
+        try {
+            resultJson = Ion.with(context)
+                    .load("http://example.com/post")
+                    .setJsonObjectBody(jsonObject)
+                    .asJsonObject().get();
+            boolean result = resultJson.get("response").getAsBoolean();
+            return result;
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            return false;
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public String removeGroup(int groupID){
@@ -184,7 +243,6 @@ public class ApiService {
             JsonObject userObject = users.getAsJsonObject();
             User user = new User();
             user.setUsername(userObject.get("name").getAsString());
-
             usersList.add(user);
         }
 
