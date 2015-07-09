@@ -17,14 +17,13 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // startGroupsActivity();
-
         // REMEMBER ME
         SharedPreferences pref = getSharedPreferences("loginPrefs",MODE_PRIVATE);
         String username = pref.getString("username", null);
         String password = pref.getString("password", null);
         if (username != null && password != null) {
             showLoginLayout();
+            // startGroupsActivity();
         }
     }
 

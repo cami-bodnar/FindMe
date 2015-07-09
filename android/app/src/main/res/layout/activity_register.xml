@@ -13,7 +13,8 @@
         android:id="@+id/emailEditText"
         android:hint="@string/emailHint"
         android:layout_below="@+id/usernameEditText"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:layout_width="match_parent"
@@ -29,14 +30,16 @@
         android:id="@+id/registerPasswordEditText"
         android:hint="@string/passwordHint"
         android:layout_below="@+id/emailEditText"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:inputType="textPassword" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/confirmPasswordEditText"
         android:hint="@string/confirmPasswordHint"
-        android:layout_below="@+id/registerPasswordEditText" />
+        android:layout_below="@+id/registerPasswordEditText"
+        android:inputType="textPassword" />
 
     <Button
         android:layout_width="wrap_content"
