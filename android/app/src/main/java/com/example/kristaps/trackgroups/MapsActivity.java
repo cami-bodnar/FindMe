@@ -3,6 +3,7 @@ package com.example.kristaps.trackgroups;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 
 import com.example.kristaps.trackgroups.core.MyApplication;
 import com.example.kristaps.trackgroups.core.entities.User;
@@ -124,6 +125,7 @@ public class MapsActivity extends FragmentActivity  implements
 
     private void setUpMap()
     {
+
         float hue = 0;
         int i = 0;
         // init dummy list
@@ -161,6 +163,7 @@ public class MapsActivity extends FragmentActivity  implements
                 hue = i;
             }
         }
+ 
     }
 
 
@@ -173,6 +176,7 @@ public class MapsActivity extends FragmentActivity  implements
     @Override
     public void onConnected(Bundle bundle)
     {
+        Log.i(TAG, "Location services connected.");
         Location location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
         if (location == null)
         {
@@ -185,7 +189,7 @@ public class MapsActivity extends FragmentActivity  implements
 
     private void handleNewLocation(Location location)
     {
-       // Log.d(TAG, location.toString());
+        Log.d(TAG, location.toString());
         double currentLatitude = location.getLatitude();
         double currentLongitude = location.getLongitude();
         LatLng latLng = new LatLng(currentLatitude, currentLongitude);
@@ -198,8 +202,9 @@ public class MapsActivity extends FragmentActivity  implements
 
 
     @Override
-    public void onConnectionSuspended(int i) {
-
+    public void onConnectionSuspended(int i)
+    {
+        Log.i(TAG, "Location services suspended. Please reconnect.");
     }
 
     @Override

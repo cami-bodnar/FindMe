@@ -4,42 +4,92 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
+import com.example.kristaps.trackgroups.core.MyApplication;
 import com.example.kristaps.trackgroups.core.entities.Group;
 import com.example.kristaps.trackgroups.core.entities.User;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by Caami on 7/8/2015.
  */
 public class ApiService {
 
-
-
     private String apiLocation = "http:\\myApiLocation";
 
+    private Context context;
     public ApiService(){
     }
 
-    public boolean registerUser(String email, String username, String password){
-        boolean isRequestProcessedSuccessfully = sendRegisterRequest();
-        return isRequestProcessedSuccessfully;
+    public ApiService(MyApplication myApplication) {
+
     }
 
-    private boolean sendRegisterRequest() {
+     public boolean registerUser(String email, String username, String password){
+         JsonObject jsonObject = new JsonObject();
+         jsonObject.addProperty("username", username);
+         jsonObject.addProperty("email", email);
+         jsonObject.addProperty("password", password);
+
+         boolean isRequestProcessedSuccessfully = sendRegisterRequest(jsonObject);
+         return isRequestProcessedSuccessfully;
+
+    }
+
+    private boolean sendRegisterRequest(JsonObject jsonObject) {
         //send request to the api and return result
-        return true;
+       /* JsonObject resultJson = null;
+            try {
+             resultJson = Ion.with(context)
+                    .load("http://example.com/post")
+                    .setJsonObjectBody(jsonObject)
+                    .asJsonObject().get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        return resultJson;*/
+
+        //send request to the api and return result
+        JsonObject resultJson = null;
+        try {
+            resultJson = Ion.with(context)
+                    .load("http://example.com/post")
+                    .setJsonObjectBody(jsonObject)
+                    .asJsonObject().get();
+            boolean result = resultJson.getAsBoolean("response");
+            return result;
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            return false;
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+            return false;
+        }
+
     }
+     public String login(String username, String password) {
 
-    public User login(String username, String password){
+        JsonObject jsonObject = new JsonObject();
 
-        User currentUser = new User();
+            jsonObject.addProperty("username", username);
+            jsonObject.addProperty("password", password);
+            return jsonObject.toString();
+
+
+       /* User currentUser = new User();
         currentUser.setUserID(1);
         currentUser.setUsername("Test");
         currentUser.setEmail("email");
-
-
-        return currentUser;
+*/
+        return null;
     }
 
     public ArrayList<Group> listAllUserGroups(int userID){
@@ -48,7 +98,6 @@ public class ApiService {
 
         group1.setGroupID(1);
         group1.setName("First Group");
-
 
         group1.setGroupID(2);
         group1.setName("Second Group");
@@ -61,31 +110,41 @@ public class ApiService {
 
     }
 
-    public Group addNewGroup(String groupName, String groupDescription, int ownerID){
+     public String addNewGroup(String groupName, String groupDescription, int ownerID) {
 
-        Group group = new Group();
+        /*Group group = new Group();
         group.setGroupID(1);
         group.setName(groupName);
         group.setDescription(groupDescription);
-        group.setOwnerId(ownerID);
+        group.setOwnerId(ownerID);*/
 
-        return group;
+         JsonObject jsonObject = new JsonObject();
 
+         jsonObject.addProperty("Group name", groupName);
+         jsonObject.addProperty("Group description", groupDescription);
+         jsonObject.addProperty("Owner id", ownerID);
+         return jsonObject.toString();
+
+     }
+
+    public String removeUserFromGroup(int groupID, int userID){
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("GroupID", groupID);
+        jsonObject.addProperty("UserID", userID);
+        return jsonObject.toString();
     }
 
-    public boolean removeUserFromGroup(int groupID, int userID){
+    public String removeGroup(int groupID){
 
-        return true;
-    }
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("GroupID", groupID);
+        return jsonObject.toString();
 
-    public boolean removeGroup(int groupID){
-
-        return true;
     }
 
     public ArrayList<User> listAllUsersFromGroup(int groupID){
 
-        User user1 = new User();
+/*        User user1 = new User();
         User user2 = new User();
 
         user1.setUserID(1);
@@ -96,20 +155,51 @@ public class ApiService {
         user1.setUsername("Second username");
         user1.setEmail("Second user email");
 
-
         ArrayList<User> result = new ArrayList<>();
         result.add(user1);
-        result.add(user2);
+        result.add(user2);*/
 
-        return result;
+        //return result;
 
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("GroupID", groupID);
 
+        //send request to the api and return result
+        JsonObject resultJson = null;
+        try {
+            resultJson = Ion.with(context)
+                    .load("http://example.com/post")
+                    .setJsonObjectBody(jsonObject)
+                    .asJsonObject().get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        if (resultJson == null) return null;
+
+        ArrayList<User> usersList = new ArrayList<>();
+        for (JsonElement users : resultJson.getAsJsonArray("users")) {
+            JsonObject userObject = users.getAsJsonObject();
+            User user = new User();
+            user.setUsername(userObject.get("name").getAsString());
+
+            usersList.add(user);
+        }
+
+        return usersList;
     }
 
-    public boolean reportUserLocation(int userID, double longitude, double latitude){
+    public String reportUserLocation(int userID, double longitude, double latitude){
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("UserID", userID);
+        jsonObject.addProperty("Longitude", longitude);
+        jsonObject.addProperty("Latitude", latitude);
 
-        return true;
+        return jsonObject.toString();
     }
+
 
 
 

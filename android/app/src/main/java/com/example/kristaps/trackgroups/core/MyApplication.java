@@ -44,7 +44,7 @@ public class MyApplication extends Application {
     }
 
     private void init() {
-        apiService = new ApiService();
+        apiService = new ApiService(this);
         systemService = new SystemService();
         currentUser =  new User();
         currentUser.setUserID(1);
