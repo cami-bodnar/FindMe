@@ -14,7 +14,7 @@ import android.widget.ListView;
 public class GroupsActivity extends ActionBarActivity {
     private ArrayAdapter arrayAdapter;
     private ListView GroupList;
-    private String[] Users = {"Group1", "Group2", "Group3", "Group4", "Group5"};
+    private String[] Users = {"Android Beginners", "Android Experts"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

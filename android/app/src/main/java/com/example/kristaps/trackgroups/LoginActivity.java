@@ -65,14 +65,15 @@ public class LoginActivity extends ActionBarActivity {
 //        User user = myApplication.getApiService().login(username, password);
 //       if( user !=null){
 //           myApplication.setCurrentUser(user);
+//
 //           // REMEMBER ME
-//           if (shouldRemember()){
-//               getSharedPreferences("loginPrefs",MODE_PRIVATE)
-//                       .edit()
-//                       .putString("username", getUsername())
-//                       .putString("password", getPassword())
-//                       .commit();
-//           }
+////           if (shouldRemember()){
+////               getSharedPreferences("loginPrefs",MODE_PRIVATE)
+////                       .edit()
+////                       .putString("username", getUsername())
+////                       .putString("password", getPassword())
+////                       .commit();
+////           }
 //
 //
 //       }

@@ -42,82 +42,11 @@ public class ApiService {
     }
 
     private boolean sendRegisterRequest(JsonObject jsonObject) {
-        //send request to the api and return result
-       /* JsonObject resultJson = null;
-            try {
-             resultJson = Ion.with(context)
-                    .load("http://example.com/post")
-                    .setJsonObjectBody(jsonObject)
-                    .asJsonObject().get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
 
-        return resultJson;*/
-
-        //send request to the api and return result
-        JsonObject resultJson = null;
-        try {
-            resultJson = Ion.with(context)
-                    .load("http://example.com/post")
-                    .setJsonObjectBody(jsonObject)
-                    .asJsonObject().get();
-<<<<<<< HEAD
-//            boolean result = resultJson.getAsBoolean("response");
-            return true;
-=======
-            Boolean result = resultJson.get("response").getAsBoolean();
-            return result;
->>>>>>> origin/master
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            return false;
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-            return false;
-        }
-
+return  false;
     }
      public User login(String username, String password) {
-
-        JsonObject jsonObject = new JsonObject();
-        //User resUser = null;
-         User resUser = new User();
-         resUser.setUserID(1);
-         resUser.setEmail("email");
-         resUser.setUsername("username");
-         resUser.setPassword("pass");
-            /*jsonObject.addProperty("username", username);
-            jsonObject.addProperty("password", password);
-             JsonObject resultJson = null;
-             try {
-                 resultJson = Ion.with(context)
-                         .load("http://example.com/post")
-                         .setJsonObjectBody(jsonObject)
-                         .asJsonObject().get();
-                 if (resultJson == null) return  null;
-                 String result = resultJson.get("response").getAsString();*/
-                 return resUser;
-             /*} catch (InterruptedException e) {
-                 e.printStackTrace();
-                 return resUser;
-             } catch (ExecutionException e) {
-                 e.printStackTrace();
-                 return resUser;
-             }
-*/
-
-       /* User currentUser = new User();
-        currentUser.setUserID(1);
-        currentUser.setUsername("Test");
-        currentUser.setEmail("email");
-*/
-<<<<<<< HEAD
-/*        return null;*/
-=======
->>>>>>> origin/master
+return null;
     }
 
     public ArrayList<Group> listAllUserGroups(int userID){

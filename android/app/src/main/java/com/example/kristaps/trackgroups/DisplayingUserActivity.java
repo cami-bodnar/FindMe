@@ -4,11 +4,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-<<<<<<< HEAD
-import android.view.View;
-import android.widget.AdapterView;
-=======
->>>>>>> origin/master
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,11 +45,4 @@ public class DisplayingUserActivity extends ActionBarActivity {
     }
 
 
-
-<<<<<<< HEAD
-        TextView tv = new TextView(this);
-        tv.setText(parent.getItemAtPosition(pos).toString());
-    }
 }
-=======
->>>>>>> origin/master

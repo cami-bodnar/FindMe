@@ -15,10 +15,10 @@ import android.widget.Toast;
 public class UserActivity extends ActionBarActivity {
     private ArrayAdapter arrayAdapter;
     private ListView groupList;
-    private String[] users = {"User1", "User2", "User3", "User4", "User5"};
+    private String[] users = {"Kristaps", "Andreea", "Tuur", "Cami", "Ekko"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState); 
         setContentView(R.layout.activity_user);
         setTitle("Groups");
 

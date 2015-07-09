@@ -56,8 +56,8 @@ public class MyApplication extends Application {
 
     }
 
-    public ApiService getApiService() {
-        return apiService;
+    public ApiServiceDummy getApiService() {
+        return apiDummy;
     }
 
     public SystemService getSystemService() {
