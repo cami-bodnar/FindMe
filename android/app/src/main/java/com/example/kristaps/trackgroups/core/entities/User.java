@@ -9,10 +9,26 @@ public class User {
     private String username;
     private String email;
     private String password;
+    private UserLocation lastLocation;
 
-    public int getUserID() {
+    public User()
+    {}
+    public User(int userID, String username, String email, String password, UserLocation lastLocation)
+    {
+        this.userID = userID;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.lastLocation = lastLocation;
+    }
+
+
+    public int getUserID()
+    {
         return userID;
     }
+
+
 
     public void setUserID(int userID) {
         this.userID = userID;
@@ -40,5 +56,15 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public UserLocation getLastLocation()
+    {
+        return lastLocation;
+    }
+
+    public void setLastLocation(UserLocation lastLocation)
+    {
+        this.lastLocation = lastLocation;
     }
 }
