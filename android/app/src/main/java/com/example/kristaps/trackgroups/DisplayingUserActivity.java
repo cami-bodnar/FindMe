@@ -4,6 +4,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.TextView;
 
 
 public class DisplayingUserActivity extends ActionBarActivity {
@@ -38,10 +41,11 @@ public class DisplayingUserActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-}
+
 
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id)  {
 
         TextView tv = new TextView(this);
         tv.setText(parent.getItemAtPosition(pos).toString());
     }
+}

@@ -194,22 +194,7 @@ public class ApiService {
 
     public ArrayList<User> listAllUsersFromGroup(int groupID){
 
-/*        User user1 = new User();
-        User user2 = new User();
 
-        user1.setUserID(1);
-        user1.setUsername("First username");
-        user1.setEmail("First user email");
-
-        user1.setUserID(2);
-        user1.setUsername("Second username");
-        user1.setEmail("Second user email");
-
-        ArrayList<User> result = new ArrayList<>();
-        result.add(user1);
-        result.add(user2);*/
-
-        //return result;
 
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("GroupID", groupID);
