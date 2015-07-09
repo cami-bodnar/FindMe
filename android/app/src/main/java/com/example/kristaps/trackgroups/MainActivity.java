@@ -1,11 +1,11 @@
 package com.example.kristaps.trackgroups;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import com.example.kristaps.trackgroups.R;
+import android.view.View;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -14,6 +14,10 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        // REMEMBER ME
+
     }
 
     @Override
@@ -31,10 +35,36 @@ public class MainActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_settings)
+        {
+            return true;
+        }
+
+        if (id == R.id.action_map)
+        {
+            startMapsActivity();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+
+    /**************** Start activity section ************************/
+    private void startMapsActivity()
+    {
+        Intent intent = new Intent(this, MapsActivity.class);
+    }
+
+    public void showRegisterLayout(View view) {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
+
+    public void showLoginLayout(View view) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 }
