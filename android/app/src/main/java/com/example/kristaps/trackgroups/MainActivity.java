@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.content.SharedPreferences;
+
 
 
 public class MainActivity extends ActionBarActivity {
@@ -15,9 +17,13 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         // REMEMBER ME
-
+        SharedPreferences pref = getSharedPreferences("loginPrefs",MODE_PRIVATE);
+        String username = pref.getString("username", null);
+        String password = pref.getString("password", null);
+        if (username != null && password != null) {
+            setContentView(R.layout.activity_maps); // dummy
+        }
     }
 
     @Override

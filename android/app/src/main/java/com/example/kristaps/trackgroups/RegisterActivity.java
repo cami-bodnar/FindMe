@@ -1,12 +1,14 @@
 package com.example.kristaps.trackgroups;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -102,7 +104,25 @@ public class RegisterActivity extends ActionBarActivity {
     }
 
     public void registerUser(View view) {
+        // REMEMBER ME
+        if (shouldRemember()){
+            getSharedPreferences("MyPrefsFile",MODE_PRIVATE)
+                    .edit()
+                    .putString("username", getUsernameValue())
+                    .putString("password", getPasswordValue())
+                    .commit();
+        }
+        // SEND REGISTER REQUEST
         sendRegisterRequest(view);
+        // SHOW LOGIN LAYOUT
         showLoginLayout();
     }
+
+
+    public boolean shouldRemember(){
+        CheckBox saveLoginCheckBox = (CheckBox)findViewById(R.id.rememberMeCheckBox);
+        return saveLoginCheckBox.isChecked();
+    }
+
+
 }
