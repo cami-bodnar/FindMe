@@ -61,8 +61,11 @@ public class LoginActivity extends ActionBarActivity {
         // get username and password from login layout
         String username = getUsername();
         String password = getPassword();
-        User user = myApplication.getApiService().login(username, password);
+        String user = myApplication.getApiService().login(username, password);
        if( user !=null){
+
+//           myApplication.setCurrentUser(user);
+
            myApplication.setCurrentUser(user);
            // REMEMBER ME
            if (shouldRemember()){
@@ -74,6 +77,7 @@ public class LoginActivity extends ActionBarActivity {
            }
            //startGroupsActivity();
            showLoginLayout();
+
        }
 
     }
