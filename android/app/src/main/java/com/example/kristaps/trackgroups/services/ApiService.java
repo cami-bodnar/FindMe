@@ -64,8 +64,13 @@ public class ApiService {
                     .load("http://example.com/post")
                     .setJsonObjectBody(jsonObject)
                     .asJsonObject().get();
+<<<<<<< HEAD
+//            boolean result = resultJson.getAsBoolean("response");
+            return true;
+=======
             Boolean result = resultJson.get("response").getAsBoolean();
             return result;
+>>>>>>> origin/master
         } catch (InterruptedException e) {
             e.printStackTrace();
             return false;
@@ -109,6 +114,10 @@ public class ApiService {
         currentUser.setUsername("Test");
         currentUser.setEmail("email");
 */
+<<<<<<< HEAD
+/*        return null;*/
+=======
+>>>>>>> origin/master
     }
 
     public ArrayList<Group> listAllUserGroups(int userID){
@@ -194,22 +203,7 @@ public class ApiService {
 
     public ArrayList<User> listAllUsersFromGroup(int groupID){
 
-/*        User user1 = new User();
-        User user2 = new User();
 
-        user1.setUserID(1);
-        user1.setUsername("First username");
-        user1.setEmail("First user email");
-
-        user1.setUserID(2);
-        user1.setUsername("Second username");
-        user1.setEmail("Second user email");
-
-        ArrayList<User> result = new ArrayList<>();
-        result.add(user1);
-        result.add(user2);*/
-
-        //return result;
 
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("GroupID", groupID);

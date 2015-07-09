@@ -46,7 +46,7 @@ public class MapsActivity extends FragmentActivity  implements
                 .addOnConnectionFailedListener(this)
                 .addApi(LocationServices.API)
                 .build();
-
+        mGoogleApiClient.connect();
 
         // Create the LocationRequest object
         mLocationRequest = LocationRequest.create()
@@ -209,7 +209,7 @@ public class MapsActivity extends FragmentActivity  implements
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
-
+        Log.d("map", connectionResult.toString());
     }
 
     @Override
