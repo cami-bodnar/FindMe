@@ -14,4 +14,6 @@
     <string name="title_activity_welcome">WelcomeActivity</string>
     <string name="registartionFailed">Fqiled</string>
     <string name="title_activity_displaying_user">DisplayingUserActivity</string>
+    <string name="title_activity_groups">GroupsActivity</string>
+    <string name="title_activity_user">UserActivity</string>
 </resources>

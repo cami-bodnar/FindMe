@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class DisplayingUserActivity extends ActionBarActivity {
@@ -24,9 +25,11 @@ public class DisplayingUserActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+        //  TEST
         TextView tv = new TextView(this);
         tv.setText("hello");
-
+        Toast.makeText(this, "Error. Passwords do not match ", Toast.LENGTH_LONG);
 
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long

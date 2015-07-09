@@ -153,9 +153,10 @@ public class MapsActivity extends FragmentActivity  implements
             User user  = it.next();
             //add markers
             mMap.addMarker(new MarkerOptions()
-                    .position(new LatLng(user.getLastLocation().getLatitude(),user.getLastLocation().getLongitude()))
+                    .position(new LatLng(user.getLastLocation().getLatitude(), user.getLastLocation().getLongitude()))
                     .title(user.getUsername())
                     .icon(BitmapDescriptorFactory.defaultMarker(hue)));
+
             if (hue <= 340) hue += 20;
             else
             {
@@ -163,7 +164,6 @@ public class MapsActivity extends FragmentActivity  implements
                 hue = i;
             }
         }
- 
     }
 
 
@@ -193,12 +193,12 @@ public class MapsActivity extends FragmentActivity  implements
         double currentLatitude = location.getLatitude();
         double currentLongitude = location.getLongitude();
         LatLng latLng = new LatLng(currentLatitude, currentLongitude);
-        MarkerOptions options = new MarkerOptions()
-                .position(latLng)
-                .title("I am here!");
-        mMap.addMarker(options);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-    }
+    MarkerOptions options = new MarkerOptions()
+            .position(latLng)
+            .title("I am here!");
+    mMap.addMarker(options);
+    mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+}
 
 
     @Override

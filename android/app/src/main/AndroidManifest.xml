@@ -46,6 +46,14 @@
             android:name=".DisplayingUserActivity"
             android:label="@string/title_activity_displaying_user" >
         </activity>
+        <activity
+            android:name=".GroupsActivity"
+            android:label="@string/title_activity_groups" >
+        </activity>
+        <activity
+            android:name=".UserActivity"
+            android:label="@string/title_activity_user" >
+        </activity>
     </application>
 
 </manifest>

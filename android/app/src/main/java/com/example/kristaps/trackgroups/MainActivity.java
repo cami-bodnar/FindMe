@@ -22,9 +22,13 @@ public class MainActivity extends ActionBarActivity {
         String username = pref.getString("username", null);
         String password = pref.getString("password", null);
         if (username != null && password != null) {
-            showLoginLayout();
-            // startGroupsActivity();
+            startGroupsActivity();
         }
+    }
+
+    private void startGroupsActivity() {
+        Intent i= new Intent( this,GroupsActivity.class);
+        startActivity(i);
     }
 
     @Override

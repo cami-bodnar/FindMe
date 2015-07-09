@@ -58,29 +58,30 @@ public class LoginActivity extends ActionBarActivity {
     }
 
     public void loginUser(View view) {
+        startGroupsActivity();
         // get username and password from login layout
-        String username = getUsername();
-        String password = getPassword();
-        User user = myApplication.getApiService().login(username, password);
-       if( user !=null){
-           myApplication.setCurrentUser(user);
-           // REMEMBER ME
-           if (shouldRemember()){
-               getSharedPreferences("loginPrefs",MODE_PRIVATE)
-                       .edit()
-                       .putString("username", getUsername())
-                       .putString("password", getPassword())
-                       .commit();
-           }
-           //startGroupsActivity();
-           showLoginLayout();
-       }
+//        String username = getUsername();
+//        String password = getPassword();
+//        User user = myApplication.getApiService().login(username, password);
+//       if( user !=null){
+//           myApplication.setCurrentUser(user);
+//           // REMEMBER ME
+//           if (shouldRemember()){
+//               getSharedPreferences("loginPrefs",MODE_PRIVATE)
+//                       .edit()
+//                       .putString("username", getUsername())
+//                       .putString("password", getPassword())
+//                       .commit();
+//           }
+//
+//
+//       }
 
     }
 
-    public void showLoginLayout() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+    private void startGroupsActivity() {
+        Intent i= new Intent( this,GroupsActivity.class);
+        startActivity(i);
     }
 
     private String getUsername() {
