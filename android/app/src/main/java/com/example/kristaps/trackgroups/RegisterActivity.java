@@ -1,5 +1,6 @@
 package com.example.kristaps.trackgroups;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -47,7 +48,6 @@ public class RegisterActivity extends ActionBarActivity {
 
 
     public void sendRegisterRequest(View view) {
-        Log.i("sendRegisterRequest", "start executing");
         try {
             // first take entered values from form
             String email = getEmailValue();
@@ -63,19 +63,42 @@ public class RegisterActivity extends ActionBarActivity {
         }
     }
 
+    private String getEmailValue() {
+        EditText emailEditText = (EditText) findViewById(R.id.emailEditText);
+        return emailEditText.getText().toString();
+    }
+
+    private String getPasswordConfirmationValue() {
+        EditText confirmPasswordEditText = (EditText) findViewById(R.id.confirmPasswordEditText);
+        return confirmPasswordEditText.getText().toString();
+    }
+
+    private String getPasswordValue() {
+        EditText registerPasswordEditText = (EditText) findViewById(R.id.registerPasswordEditText);
+        return registerPasswordEditText.getText().toString();
+    }
+
+    private String getUsernameValue() {
+        EditText usernameEditText = (EditText) findViewById(R.id.usernameEditText);
+        return usernameEditText.getText().toString();
+    }
+
     public void processRegisterRequest(String email, String username, String password) {
         Log.i("proccessRegisterRequest", "start executing");
         // here need to be implemented logic for sending API request
         boolean isRequestProcessedSuccessfully = myApplication.getApiService().registerUser(email, username, password);
-        if (isRequestProcessedSuccessfuly)
-            startLoginActivity();
+        if (isRequestProcessedSuccessfully)
+            showLoginLayout();
         else
             Toast.makeText(this, R.string.registartionFailed, Toast.LENGTH_LONG);
     }
+    public void showLoginLayout() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
 
-
-   /* public void registerUser(View view) {
-
-        myApplication.getApiService().registerUser();
-    }*/
+    public void registerUser(View view) {
+        sendRegisterRequest(view);
+        showLoginLayout();
+    }
 }

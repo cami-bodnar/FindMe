@@ -34,8 +34,11 @@ public class MyApplication extends Application {
         return currentUser;
     }
 
-    public MyApplication ()
-    {
+    public void setCurrentUser(User value) {
+         currentUser = value;
+    }
+
+    public MyApplication (){
         super();
         init();
     }
