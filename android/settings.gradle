@@ -1,1 +1,1 @@
-include ':app', ':androidasync-2.1.6', ':ion-2.1.6'
+include ':androidasync-2.1.6', ':ion-2.1.6', ':app'

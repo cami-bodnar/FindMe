@@ -64,8 +64,8 @@ public class ApiService {
                     .load("http://example.com/post")
                     .setJsonObjectBody(jsonObject)
                     .asJsonObject().get();
-            boolean result = resultJson.getAsBoolean("response");
-            return result;
+//            boolean result = resultJson.getAsBoolean("response");
+            return true;
         } catch (InterruptedException e) {
             e.printStackTrace();
             return false;
@@ -89,7 +89,7 @@ public class ApiService {
         currentUser.setUsername("Test");
         currentUser.setEmail("email");
 */
-        return null;
+/*        return null;*/
     }
 
     public ArrayList<Group> listAllUserGroups(int userID){
