@@ -24,7 +24,7 @@ public class LoginActivity extends ActionBarActivity {
         }
         catch (ClassCastException e)
         {
-            
+
         }
     }
 
