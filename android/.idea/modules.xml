@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/android.iml" filepath="$PROJECT_DIR$/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/androidasync-2.1.6/androidasync-2.1.6.iml" filepath="$PROJECT_DIR$/androidasync-2.1.6/androidasync-2.1.6.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ion-2.1.6/ion-2.1.6.iml" filepath="$PROJECT_DIR$/ion-2.1.6/ion-2.1.6.iml" />
     </modules>
   </component>
 </project>

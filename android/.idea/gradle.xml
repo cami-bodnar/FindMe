@@ -10,7 +10,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/androidasync-2.1.6" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/ion-2.1.6" />
           </set>
         </option>
       </GradleProjectSettings>
