@@ -53,7 +53,13 @@ public class MapsActivity extends FragmentActivity  implements
                 .setInterval(60 * 1000)        // 1 MIN, in milliseconds
                 .setFastestInterval(1 * 1000); // 1 second, in milliseconds
 
-        myApplication = (MyApplication) getApplicationContext();
+        try {
+            myApplication = (MyApplication) getApplicationContext();
+        }
+        catch(ClassCastException exc)
+        {
+        }
+
     }
 
     @Override
@@ -168,7 +174,8 @@ public class MapsActivity extends FragmentActivity  implements
     public void onConnected(Bundle bundle)
     {
         Location location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-        if (location == null) {
+        if (location == null)
+        {
             LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
         }
         else {
@@ -178,6 +185,7 @@ public class MapsActivity extends FragmentActivity  implements
 
     private void handleNewLocation(Location location)
     {
+       // Log.d(TAG, location.toString());
         double currentLatitude = location.getLatitude();
         double currentLongitude = location.getLongitude();
         LatLng latLng = new LatLng(currentLatitude, currentLongitude);
