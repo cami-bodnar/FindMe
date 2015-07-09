@@ -16,6 +16,9 @@ public class MyApplication extends Application {
     private ApiService apiService = null;
     private SystemService systemService = null;
     private User currentUser;
+    private List<User> displayUsersOnMap;
+
+
 
     public List<User> getDisplayUsersOnMap() {
         return displayUsersOnMap;
@@ -25,13 +28,14 @@ public class MyApplication extends Application {
         this.displayUsersOnMap = displayUsersOnMap;
     }
 
-    private List<User> displayUsersOnMap;
+
 
     public User getCurrentUser() {
         return currentUser;
     }
 
-    public MyApplication (){
+    public MyApplication ()
+    {
         super();
         init();
     }

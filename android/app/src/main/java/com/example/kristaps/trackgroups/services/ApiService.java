@@ -61,6 +61,56 @@ public class ApiService {
 
     }
 
+    public Group addNewGroup(String groupName, String groupDescription, int ownerID){
+
+        Group group = new Group();
+        group.setGroupID(1);
+        group.setName(groupName);
+        group.setDescription(groupDescription);
+        group.setOwnerId(ownerID);
+
+        return group;
+
+    }
+
+    public boolean removeUserFromGroup(int groupID, int userID){
+
+        return true;
+    }
+
+    public boolean removeGroup(int groupID){
+
+        return true;
+    }
+
+    public ArrayList<User> listAllUsersFromGroup(int groupID){
+
+        User user1 = new User();
+        User user2 = new User();
+
+        user1.setUserID(1);
+        user1.setUsername("First username");
+        user1.setEmail("First user email");
+
+        user1.setUserID(2);
+        user1.setUsername("Second username");
+        user1.setEmail("Second user email");
+
+
+        ArrayList<User> result = new ArrayList<>();
+        result.add(user1);
+        result.add(user2);
+
+        return result;
+
+
+    }
+
+    public boolean reportUserLocation(int userID, double longitude, double latitude){
+
+        return true;
+    }
+
 
 
 }
