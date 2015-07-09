@@ -17,7 +17,8 @@
         android:hint="@string/emailOrUsernameHint"
         android:layout_alignParentTop="true"
 
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:layout_width="match_parent"
@@ -27,7 +28,8 @@
         android:visibility="visible"
         android:layout_below="@+id/emailOrUsernameEditText"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:inputType="textPassword" />
 
     <CheckBox
         android:layout_width="wrap_content"
