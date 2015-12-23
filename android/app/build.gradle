@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 22
-    buildToolsVersion "23.0.0 rc2"
+    buildToolsVersion "23.0.1"
 
     defaultConfig {
         applicationId "com.example.kristaps.trackgroups"
@@ -24,4 +24,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.google.android.gms:play-services:7.5.0'
     compile 'com.koushikdutta.ion:ion:2.+'
+    compile 'com.mcxiaoke.volley:library:1.0.18'
 }

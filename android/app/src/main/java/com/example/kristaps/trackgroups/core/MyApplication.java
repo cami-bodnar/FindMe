@@ -46,18 +46,20 @@ public class MyApplication extends Application {
     }
 
     private void init() {
-        //apiService = new ApiService(this);
-        apiDummy = new ApiServiceDummy(this);
+        apiService = new ApiService(this);
+       // apiDummy = new ApiServiceDummy(this);
         systemService = new SystemService();
-        currentUser =  new User();
-        currentUser.setUserID(1);
-        currentUser.setUsername("Test");
-        currentUser.setEmail("email");
+       // currentUser = getCurrentUser();
+      //  currentUser.setUserID(1);
+      //  currentUser.setUsername("Test");// currentUser.setEmail("email");
 
     }
 
-    public ApiServiceDummy getApiService() {
-        return apiDummy;
+   // public ApiServiceDummy getApiService() {
+        //return apiDummy;}
+
+    public ApiService getApiService() {
+        return apiService;
     }
 
     public SystemService getSystemService() {
